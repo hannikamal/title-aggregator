@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title Aggregator</title>
+
+        <style>
+            body {
+                font-family: Arial, Helvetica, sans-serif;
+                background-color: white;
+                color: black;
+                padding: 40px;
+            }
+
+            h1 {
+                text-align: center;
+                font-size: 28px;
+                margin-bottom: 30px;
+            }
+
+            ul {
+                list-style-type: none;
+                padding: 0;
+            }
+
+            li {
+                margin-bottom: 12px;
+            }
+
+            a {
+                text-decoration: none;
+                color: black;
+                font-size: 18px;
+            }
+
+            a:hover {
+                text-decoration: underline;
+            }
+        </style>
+    </head>
+
+    <body>
+        <h1> Latest Headlines </h1>
+
+        <!-- Loops through list passed from Flask-->
+        <ul> 
+            {% for article in articles %}
+                <li>
+                    <a href="{{ article.url }}" target="_blank">{{ article.title }}</a>
+                    <small>({{ article.date }})</small>
+                </li>
+            {% endfor %}
+        </ul>
+    </body>
+
+</html>
