@@ -38,4 +38,6 @@ def scrape_the_verge():
     return articles
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    import os
+    port = int(os.environ.get("PORT", 5000))  # use Render's port or default to 5000
+    app.run(host="0.0.0.0", port=port)
